@@ -43,7 +43,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 .hero-tagline{font-size:10px;letter-spacing:8px;color:var(--gold);text-transform:uppercase;font-weight:400;margin-bottom:32px;animation:fadeUp .9s .1s ease both}
 
-.hero-title{font-family:'Inter',sans-serif;font-size:clamp(48px,8vw,88px);font-weight:300;line-height:1.1;letter-spacing:6px;text-transform:uppercase;margin-bottom:28px;animation:fadeUp .9s .2s ease both;font-style:italic}
+.hero-title{font-family:'Inter',sans-serif;font-size:clamp(32px,7vw,88px);font-weight:300;line-height:1.1;letter-spacing:6px;text-transform:uppercase;margin-bottom:28px;animation:fadeUp .9s .2s ease both;font-style:italic}
 
 .hero-sub{font-size:12px;font-weight:300;color:var(--muted);letter-spacing:2px;line-height:2;max-width:480px;margin:0 auto 56px;animation:fadeUp .9s .3s ease both}
 
@@ -131,11 +131,13 @@ footer{padding:56px 72px;border-top:1px solid var(--border);display:flex;align-i
 
 @media(max-width:900px){
   nav{padding:20px 24px}
-  .hero{padding:120px 24px 80px}
+  .hero{padding:120px 16px 80px;text-align:center}
   .sec{padding:80px 24px}
   .strip{grid-template-columns:1fr}
   .strip-item{border-right:none;border-bottom:1px solid var(--border)}
   .about-grid,.contact-wrap{grid-template-columns:1fr;gap:48px}
+  .hero-cta{flex-direction:column;align-items:center}
+  .btn-primary,.btn-ghost{padding:14px 24px;font-size:8px;letter-spacing:2px;white-space:nowrap}
   .feat-grid,.price-grid{grid-template-columns:1fr} #products [style*="grid-template-columns:repeat(4"]{grid-template-columns:repeat(2,1fr)}
   footer{flex-direction:column;gap:24px;padding:40px 24px;text-align:center}
   .foot-links{flex-wrap:wrap;justify-content:center}
