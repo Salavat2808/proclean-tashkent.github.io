@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRO CLEAN — Premium Cleaning Services Tashkent</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --g1:#BF953F;--g2:#FCF6BA;--g3:#B38728;--g4:#FBF5B7;--g5:#AA771C;
+  --gold:#C9A84C;--gold-light:#E8C96A;
+  --bg:#080808;--bg2:#111;--bg3:#181818;
+  --text:#F0EAD6;--muted:#5A5447;--border:rgba(191,149,63,0.18);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Raleway',sans-serif;font-weight:300;overflow-x:hidden}
+
+/* GOLD GRADIENT */
+.gold-grad{background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3),var(--g4),var(--g5));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:28px 72px;background:linear-gradient(to bottom,rgba(8,8,8,0.97) 60%,transparent)}
+
+/* LOGO SVG */
+.nav-logo svg{height:44px;width:auto}
+
+.nav-right{display:flex;align-items:center;gap:32px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:10px;letter-spacing:4px;color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-phone{font-size:13px;letter-spacing:2px;color:var(--text);text-decoration:none;transition:color .3s;font-weight:400}
+.nav-phone:hover{color:var(--gold)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 60px 100px;position:relative;overflow:hidden}
+
+.hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(191,149,63,0.07) 0%,transparent 65%);pointer-events:none}
+
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(191,149,63,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(191,149,63,0.025) 1px,transparent 1px);background-size:100px 100px;pointer-events:none}
+
+.hero-logo-big{margin-bottom:56px;animation:fadeUp .9s ease both}
+
+.hero-tagline{font-size:10px;letter-spacing:8px;color:var(--gold);text-transform:uppercase;font-weight:400;margin-bottom:32px;animation:fadeUp .9s .1s ease both}
+
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,8vw,88px);font-weight:300;line-height:1.1;letter-spacing:6px;text-transform:uppercase;margin-bottom:28px;animation:fadeUp .9s .2s ease both}
+
+.hero-sub{font-size:12px;font-weight:300;color:var(--muted);letter-spacing:2px;line-height:2;max-width:480px;margin:0 auto 56px;animation:fadeUp .9s .3s ease both}
+
+.hero-cta{display:flex;gap:16px;justify-content:center;animation:fadeUp .9s .4s ease both}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+.btn-primary{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--g1),var(--g3));color:#080808;font-family:'Raleway',sans-serif;font-size:9px;font-weight:600;letter-spacing:4px;text-transform:uppercase;padding:18px 40px;border:none;cursor:pointer;text-decoration:none;transition:all .3s;border-radius:1px}
+.btn-primary:hover{background:linear-gradient(135deg,var(--g2),var(--g1));box-shadow:0 8px 40px rgba(191,149,63,0.25);transform:translateY(-2px)}
+
+.btn-ghost{display:inline-flex;align-items:center;gap:12px;background:transparent;color:var(--gold);font-family:'Raleway',sans-serif;font-size:9px;font-weight:500;letter-spacing:4px;text-transform:uppercase;padding:17px 40px;border:1px solid var(--border);cursor:pointer;text-decoration:none;transition:all .3s;border-radius:1px}
+.btn-ghost:hover{border-color:var(--gold);background:rgba(191,149,63,0.05)}
+
+/* SCROLL INDICATOR */
+.scroll-ind{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;animation:fadeUp 1s .7s ease both}
+.scroll-ind span{font-size:8px;letter-spacing:4px;color:var(--muted);text-transform:uppercase}
+.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollPulse 2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(.5);transform-origin:top}50%{opacity:1;transform:scaleY(1)}}
+
+/* SERVICES STRIP */
+.strip{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.strip-item{padding:40px 48px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:16px;transition:background .3s}
+.strip-item:last-child{border-right:none}
+.strip-item:hover{background:var(--bg2)}
+.strip-num{font-size:8px;letter-spacing:4px;color:var(--gold);font-weight:500}
+.strip-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--text);border-left:1px solid var(--gold);padding-left:16px;line-height:1.3}
+.strip-desc{font-size:11px;color:var(--muted);line-height:1.9;letter-spacing:.5px}
+
+/* SECTION */
+.sec{padding:120px 72px}
+.sec-alt{background:var(--bg2)}
+.sec-tag{font-size:8px;letter-spacing:6px;color:var(--gold);text-transform:uppercase;font-weight:500;margin-bottom:20px;display:flex;align-items:center;gap:16px}
+.sec-tag::before{content:'';width:32px;height:1px;background:var(--gold);display:block}
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;letter-spacing:4px;text-transform:uppercase;line-height:1.2}
+
+/* ABOUT GRID */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:64px}
+.about-text{font-size:13px;font-weight:300;color:var(--muted);line-height:2.1;letter-spacing:.5px}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.stat{background:var(--bg);padding:36px 32px;display:flex;flex-direction:column;gap:8px}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;line-height:1;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-label{font-size:9px;letter-spacing:3px;color:var(--muted);text-transform:uppercase}
+
+/* FEATURES */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:64px}
+.feat{background:var(--bg2);padding:48px 36px;display:flex;flex-direction:column;gap:20px;transition:background .3s}
+.feat:hover{background:var(--bg3)}
+.feat-icon{width:52px;height:52px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--gold)}
+.feat-t{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--text)}
+.feat-d{font-size:11px;color:var(--muted);line-height:2;letter-spacing:.3px}
+
+/* PRICING */
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:64px}
+.price-card{background:var(--bg);padding:52px 40px;display:flex;flex-direction:column;gap:24px;position:relative;transition:background .3s}
+.price-card:hover{background:var(--bg3)}
+.price-card.hot{background:var(--bg2)}
+.price-card.hot::after{content:'ПОПУЛЯРНОЕ';position:absolute;top:0;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--g1),var(--g3));color:#080808;font-size:7px;font-weight:700;letter-spacing:3px;padding:6px 20px}
+.price-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;letter-spacing:4px;text-transform:uppercase}
+.price-n{font-family:'Cormorant Garamond',serif;font-size:60px;font-weight:300;line-height:1;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.price-unit{font-size:11px;color:var(--muted);letter-spacing:1px;margin-top:-8px}
+.price-div{width:40px;height:1px;background:linear-gradient(to right,var(--gold),transparent)}
+.price-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.price-list li{font-size:11px;color:var(--muted);padding-left:18px;position:relative;letter-spacing:.3px;line-height:1.6}
+.price-list li::before{content:'—';position:absolute;left:0;color:var(--gold)}
+
+/* CONTACT */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start;margin-top:64px}
+.contact-info{display:flex;flex-direction:column;gap:32px}
+.info-block{display:flex;flex-direction:column;gap:6px}
+.info-label{font-size:8px;letter-spacing:4px;color:var(--gold);text-transform:uppercase}
+.info-val{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--text)}
+.form{display:flex;flex-direction:column;gap:28px}
+.f-group{display:flex;flex-direction:column;gap:8px}
+.f-label{font-size:8px;letter-spacing:4px;color:var(--muted);text-transform:uppercase}
+.f-input{background:transparent;border:none;border-bottom:1px solid var(--border);padding:14px 0;color:var(--text);font-family:'Raleway',sans-serif;font-size:13px;font-weight:300;outline:none;transition:border-color .3s;width:100%;letter-spacing:.5px}
+.f-input::placeholder{color:var(--muted)}
+.f-input:focus{border-bottom-color:var(--gold)}
+
+/* FOOTER */
+footer{padding:56px 72px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.foot-links{display:flex;gap:40px}
+.foot-links a{font-size:9px;letter-spacing:3px;color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .3s}
+.foot-links a:hover{color:var(--gold)}
+.foot-copy{font-size:9px;letter-spacing:2px;color:var(--muted);text-transform:uppercase}
+
+@media(max-width:900px){
+  nav{padding:20px 24px}
+  .hero{padding:120px 24px 80px}
+  .sec{padding:80px 24px}
+  .strip{grid-template-columns:1fr}
+  .strip-item{border-right:none;border-bottom:1px solid var(--border)}
+  .about-grid,.contact-wrap{grid-template-columns:1fr;gap:48px}
+  .feat-grid,.price-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:24px;padding:40px 24px;text-align:center}
+  .foot-links{flex-wrap:wrap;justify-content:center}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <!-- LOGO (inline SVG replicating the uploaded logo) -->
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 220 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="gn" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#BF953F"/>
+          <stop offset="30%" stop-color="#FCF6BA"/>
+          <stop offset="60%" stop-color="#B38728"/>
+          <stop offset="100%" stop-color="#AA771C"/>
+        </linearGradient>
+      </defs>
+      <!-- Sparkle left -->
+      <path d="M18 10 L20.5 22 L32 24 L20.5 26 L18 38 L15.5 26 L4 24 L15.5 22 Z" fill="url(#gn)"/>
+      <path d="M8 8 L9.2 14 L15 15 L9.2 16 L8 22 L6.8 16 L1 15 L6.8 14 Z" fill="url(#gn)" opacity=".7"/>
+      <!-- Divider -->
+      <line x1="46" y1="6" x2="46" y2="46" stroke="url(#gn)" stroke-width=".8"/>
+      <!-- PC -->
+      <text x="56" y="38" font-family="Cormorant Garamond, serif" font-size="36" font-weight="400" fill="url(#gn)" letter-spacing="2">PC</text>
+      <!-- PRO CLEAN below -->
+      <text x="56" y="50" font-family="Raleway, sans-serif" font-size="7.5" font-weight="400" fill="url(#gn)" letter-spacing="5">PRO CLEAN</text>
+    </svg>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#services">Услуги</a></li>
+    <li><a href="#about">О нас</a></li>
+    <li><a href="#pricing">Цены</a></li>
+    <li><a href="#contact">Контакт</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <a href="tel:+998330574650" class="nav-phone">+998 (33) 057 46 50</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+
+  <!-- Big centered logo -->
+  <div class="hero-logo-big">
+    <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:min(320px,70vw)">
+      <defs>
+        <linearGradient id="gh" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#BF953F"/>
+          <stop offset="30%" stop-color="#FCF6BA"/>
+          <stop offset="55%" stop-color="#B38728"/>
+          <stop offset="80%" stop-color="#FBF5B7"/>
+          <stop offset="100%" stop-color="#AA771C"/>
+        </linearGradient>
+      </defs>
+      <!-- Big sparkle -->
+      <path d="M38 18 L43 50 L74 55 L43 60 L38 92 L33 60 L2 55 L33 50 Z" fill="url(#gh)"/>
+      <path d="M18 12 L21 28 L37 31 L21 34 L18 50 L15 34 L-1 31 L15 28 Z" fill="url(#gh)" opacity=".6"/>
+      <!-- Divider line -->
+      <line x1="92" y1="10" x2="92" y2="100" stroke="url(#gh)" stroke-width="1"/>
+      <!-- PC letters -->
+      <text x="106" y="85" font-family="Cormorant Garamond,serif" font-size="80" font-weight="300" fill="url(#gh)" letter-spacing="4">PC</text>
+      <!-- PRO CLEAN -->
+      <text x="106" y="108" font-family="Raleway,sans-serif" font-size="13" font-weight="300" fill="url(#gh)" letter-spacing="12">PRO CLEAN</text>
+    </svg>
+  </div>
+
+  <p class="hero-tagline">Premium Cleaning Services · Tashkent</p>
+  <h1 class="hero-title gold-grad">Безупречная<br>чистота</h1>
+  <p class="hero-sub">Генеральная, влажная и послеремонтная уборка.<br>Профессионально, в срок, по всему Ташкенту.</p>
+
+  <div class="hero-cta">
+    <a href="#contact" class="btn-primary">Записаться сейчас →</a>
+    <a href="#services" class="btn-ghost">Наши услуги</a>
+  </div>
+
+  <div class="scroll-ind">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- SERVICES STRIP -->
+<div class="strip" id="services">
+  <div class="strip-item">
+    <span class="strip-num">01</span>
+    <span class="strip-title">Генеральная<br>уборка</span>
+    <span class="strip-desc">Полная уборка квартиры или дома — потолки, стены, мебель, санузлы, балкон, окна изнутри. Идеально к празднику или заезду.</span>
+  </div>
+  <div class="strip-item">
+    <span class="strip-num">02</span>
+    <span class="strip-title">Влажная<br>(поддерживающая)</span>
+    <span class="strip-desc">Регулярная поддерживающая уборка — поддержим чистоту вашего дома на постоянной основе. Еженедельно или по расписанию.</span>
+  </div>
+  <div class="strip-item">
+    <span class="strip-num">03</span>
+    <span class="strip-title">Послеремонтная<br>уборка</span>
+    <span class="strip-desc">Строительная пыль, штукатурка, краска, клей — уберём всё. Сдадим помещение в идеальном виде после ремонта.</span>
+  </div>
+</div>
+
+<!-- EXTRA SERVICES -->
+<div style="border-bottom:1px solid var(--border);padding:28px 72px;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+  <span style="font-size:8px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;flex-shrink:0">Дополнительно</span>
+  <span style="width:1px;height:18px;background:var(--border);flex-shrink:0"></span>
+  <span style="font-size:11px;color:var(--muted);letter-spacing:1px;display:flex;align-items:center;gap:8px"><span style="width:4px;height:4px;border-radius:50%;background:var(--gold);display:inline-block;flex-shrink:0"></span>Химчистка мебели на месте</span>
+  <span style="font-size:11px;color:var(--muted);letter-spacing:1px;display:flex;align-items:center;gap:8px"><span style="width:4px;height:4px;border-radius:50%;background:var(--gold);display:inline-block;flex-shrink:0"></span>Химчистка штор и ковров</span>
+  <span style="font-size:11px;color:var(--muted);letter-spacing:1px;display:flex;align-items:center;gap:8px"><span style="width:4px;height:4px;border-radius:50%;background:var(--gold);display:inline-block;flex-shrink:0"></span>Профилактика и чистка кондиционеров</span>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="sec-tag">О компании</div>
+  <h2 class="sec-h">Pro Clean —<br>стандарт чистоты</h2>
+  <div class="about-grid">
+    <div>
+      <p class="about-text">
+        Мы — команда профессионалов по химчистке мебели, штор, ковров и обслуживанию кондиционеров в Ташкенте.
+        Работаем на выезд — приезжаем к вам и делаем всё на месте, без лишних хлопот.
+        <br><br>
+        Используем профессиональное оборудование и химию европейских брендов, безопасную для детей и животных. Гарантируем результат — или переделаем бесплатно.
+      </p>
+      <div style="margin-top:36px;display:flex;flex-direction:column;gap:0;border:1px solid var(--border)">
+        <div style="display:flex;align-items:center;gap:20px;padding:18px 24px;border-bottom:1px solid var(--border)">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="color:var(--gold);flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+          <div><div style="font-size:8px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:4px">Территория</div><div style="font-size:13px;color:var(--text);font-weight:300">Все районы Ташкента</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:20px;padding:18px 24px;border-bottom:1px solid var(--border)">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="color:var(--gold);flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+          <div><div style="font-size:8px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:4px">Запись</div><div style="font-size:13px;color:var(--text);font-weight:300">Строго за 1 сутки</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:20px;padding:18px 24px;border-bottom:1px solid var(--border)">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="color:var(--gold);flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 01.778-.332 48.294 48.294 0 005.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
+          <div><div style="font-size:8px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:4px">Консультация</div><div style="font-size:13px;color:var(--text);font-weight:300">Бесплатно</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:20px;padding:18px 24px">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" style="color:var(--gold);flex-shrink:0"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/></svg>
+          <div><div style="font-size:8px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:4px">Выезд за город</div><div style="font-size:13px;color:var(--text);font-weight:300">от 5 000 сум за 1 км</div></div>
+        </div>
+      </div>
+      <div style="margin-top:40px">
+        <a href="#contact" class="btn-primary">Заказать уборку →</a>
+      </div>
+    </div>
+    <div class="about-stats">
+      <div class="stat"><span class="stat-num">3000+</span><span class="stat-label">выполненных заказов</span></div>
+      <div class="stat"><span class="stat-num">5 лет</span><span class="stat-label">на рынке Ташкента</span></div>
+      <div class="stat"><span class="stat-num">98%</span><span class="stat-label">довольных клиентов</span></div>
+      <div class="stat"><span class="stat-num">15 мин</span><span class="stat-label">до ответа на заявку</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="sec sec-alt">
+  <div class="sec-tag">Преимущества</div>
+  <h2 class="sec-h">Почему выбирают нас</h2>
+  <div class="feat-grid">
+    <div class="feat">
+      <div class="feat-icon">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <div class="feat-t">Проверенные мастера</div>
+      <div class="feat-d">Каждый специалист проходит обучение, аттестацию и проверку документов. Без посторонних людей в вашем доме.</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <div class="feat-t">Выезд в день заявки</div>
+      <div class="feat-d">Принимаем заявки круглосуточно. Приедем утром, вечером, в выходные — когда вам удобно.</div>
+    </div>
+    <div class="feat">
+      <div class="feat-icon">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+      </div>
+      <div class="feat-t">Гарантия результата</div>
+      <div class="feat-d">Если что-то не устроит — перечистим бесплатно. Без споров и лишних вопросов.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="sec" id="pricing">
+  <div class="sec-tag">Тарифы</div>
+  <h2 class="sec-h">Прозрачные цены</h2>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-name">Генеральная</div>
+      <div class="price-n">— <span style="font-size:20px;opacity:.6"> цена</span></div>
+      <div class="price-unit">уточняйте при заказе</div>
+      <div class="price-div"></div>
+      <ul class="price-list">
+        <li>Потолки, стены, мебель</li>
+        <li>Санузлы и кухня</li>
+        <li>Окна изнутри</li>
+        <li>Балкон и лоджия</li>
+        <li>Полная дезинфекция</li>
+      </ul>
+      <a href="#contact" class="btn-ghost">Записаться</a>
+    </div>
+    <div class="price-card hot">
+      <div class="price-name">Влажная</div>
+      <div class="price-n">— <span style="font-size:20px;opacity:.6"> цена</span></div>
+      <div class="price-unit">уточняйте при заказе</div>
+      <div class="price-div"></div>
+      <ul class="price-list">
+        <li>Поддерживающая уборка</li>
+        <li>Полы, поверхности, пыль</li>
+        <li>Санузлы и кухня</li>
+        <li>Еженедельно или по расписанию</li>
+        <li>Постоянным клиентам — скидки</li>
+      </ul>
+      <a href="#contact" class="btn-primary">Записаться →</a>
+    </div>
+    <div class="price-card">
+      <div class="price-name">Послеремонтная</div>
+      <div class="price-n">— <span style="font-size:20px;opacity:.6"> цена</span></div>
+      <div class="price-unit">уточняйте при заказе</div>
+      <div class="price-div"></div>
+      <ul class="price-list">
+        <li>Строительная пыль и мусор</li>
+        <li>Штукатурка, краска, клей</li>
+        <li>Окна и рамы</li>
+        <li>Все поверхности и полы</li>
+      </ul>
+      <a href="#contact" class="btn-ghost">Записаться</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec sec-alt" id="contact">
+  <div class="sec-tag">Контакт</div>
+  <h2 class="sec-h">Оставить заявку</h2>
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <div class="info-block">
+        <span class="info-label">Телефон</span>
+        <span class="info-val">+998 (33) 057 46 50</span>
+      </div>
+      <div class="info-block">
+        <span class="info-label">Telegram</span>
+        <span class="info-val">@proclean_tashkent</span>
+      </div>
+      <div class="info-block">
+        <span class="info-label">Консультация</span>
+        <span class="info-val">Бесплатно</span>
+      </div>
+      <div class="info-block">
+        <span class="info-label">Запись</span>
+        <span class="info-val">Строго за 1 сутки</span>
+      </div>
+      <div class="info-block">
+        <span class="info-label">Территория</span>
+        <span class="info-val">Все районы Ташкента</span>
+      </div>
+      <div class="info-block">
+        <span class="info-label">Выезд за город</span>
+        <span class="info-val">от 5 000 сум за 1 км</span>
+      </div>
+    </div>
+    <form class="form" onsubmit="return false;">
+      <div class="f-group">
+        <label class="f-label">Ваше имя</label>
+        <input type="text" class="f-input" placeholder="Как вас зовут?">
+      </div>
+      <div class="f-group">
+        <label class="f-label">Телефон</label>
+        <input type="tel" class="f-input" placeholder="+998 __ ___ __ __">
+      </div>
+      <div class="f-group">
+        <label class="f-label">Услуга</label>
+        <input type="text" class="f-input" placeholder="Стандарт / Генеральная / Химчистка">
+      </div>
+      <div class="f-group">
+        <label class="f-label">Адрес</label>
+        <input type="text" class="f-input" placeholder="Район, улица">
+      </div>
+      <div class="f-group">
+        <label class="f-label">Пожелания</label>
+        <input type="text" class="f-input" placeholder="Площадь, особые условия...">
+      </div>
+      <div style="margin-top:8px">
+        <button type="submit" class="btn-primary">Отправить заявку →</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <svg viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:32px">
+    <defs><linearGradient id="gf" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#BF953F"/><stop offset="50%" stop-color="#FCF6BA"/><stop offset="100%" stop-color="#AA771C"/></linearGradient></defs>
+    <path d="M10 4 L12 16 L24 18 L12 20 L10 32 L8 20 L-4 18 L8 16 Z" fill="url(#gf)"/>
+    <line x1="32" y1="3" x2="32" y2="37" stroke="url(#gf)" stroke-width=".7"/>
+    <text x="40" y="28" font-family="Cormorant Garamond,serif" font-size="28" font-weight="300" fill="url(#gf)" letter-spacing="2">PC</text>
+    <text x="40" y="38" font-family="Raleway,sans-serif" font-size="6" font-weight="300" fill="url(#gf)" letter-spacing="5">PRO CLEAN</text>
+  </svg>
+  <div class="foot-links">
+    <a href="#services">Услуги</a>
+    <a href="#pricing">Цены</a>
+    <a href="#about">О нас</a>
+    <a href="#contact">Контакт</a>
+  </div>
+  <span class="foot-copy">&copy; 2025 Pro Clean Tashkent</span>
+</footer>
+
+</body>
+</html>
